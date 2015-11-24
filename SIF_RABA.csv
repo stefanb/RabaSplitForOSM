@@ -1,4 +1,4 @@
-RABA_ID,VRSTA_RABE,MIN_POVRSINA,IMPORT,landuse,crop,trees,natural,wetland
+RABA_ID,DESCRIPTION,MIN_AREA,IMPORT,landuse,crop,trees,natural,wetland
 1100,"Njiva ali vrt",1000,YES,farmland,,,,
 1160,"Hmeljišče",500,YES,farmland,hop,,,
 1180,"Trajne rastline na njivskih površinah",1000,YES,plant_nursery,,,,

@@ -68,13 +68,19 @@ echo -n "  Dissolving split ${splitId}..."
 #ogr2ogr ${outputFolder}/${namePrefix}${splitId}diss/ ${outputFolder}/${namePrefix}${splitId}/ -dialect sqlite -sql "SELECT ST_Union(geometry), RABA_ID, 'RABA-KGZ' as source, '2015-03-31' as SOURCEDATE, natural, landuse, crop, trees, wetland  FROM '${namePrefix}${splitId}' GROUP BY RABA_ID" -nln ${namePrefix}${splitId}diss -explodecollections
 #ogr2ogr ${outputFolder}/${namePrefix}${splitId}diss/ ${outputFolder}/${namePrefix}${splitId}/ -dialect sqlite -sql "SELECT ST_Union(geometry), RABA_ID, 'RABA-KGZ' as source, SOURCEDATE, natural, landuse, crop, trees, wetland  FROM '${namePrefix}${splitId}' GROUP BY RABA_ID" -nln ${namePrefix}${splitId}diss -explodecollections
 ogr2ogr ${outputFolder}/${namePrefix}${splitId}diss/ ${outputFolder}/${namePrefix}${splitId}/ -dialect sqlite \
- -sql "SELECT ST_Union(geometry), 
-		RABA_ID, 
-		'RABA-KGZ' as source, 
-		'2015-10-31' as SOURCEDATE
-		/*, natural, landuse, crop, trees, wetland*/
-	FROM '${namePrefix}${splitId}' 
-	GROUP BY RABA_ID" \
+ -sql "SELECT ST_Union(geometry),
+		src.RABA_ID,
+		'RABA-KGZ' as source,
+		'2015-10-31' as SOURCEDATE,
+		sif.natural,
+		sif.landuse,
+		sif.crop,
+		sif.trees,
+		sif.wetland
+	FROM '${namePrefix}${splitId}' AS src
+		LEFT JOIN 'SIF_RABA.csv'.SIF_RABA AS sif ON cast(src.RABA_ID as text)=sif.RABA_ID
+	WHERE sif.IMPORT = 'YES'
+	GROUP BY src.RABA_ID" \
  -nln ${namePrefix}${splitId}diss -explodecollections
 echo "  done."
 

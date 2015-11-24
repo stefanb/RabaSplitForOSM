@@ -1,6 +1,8 @@
 http://forum.openstreetmap.org/viewtopic.php?pid=449111
 
+
 $ ogr2ogr -t_srs "EPSG:4326" RABA_20150331_import_EPSG4326 RABA_20150331_84_import -nln RABA_20150331_import_EPSG4326 -progress
+$ ogr2ogr -t_srs "EPSG:4326" RABA_20151031_EPSG4326 RABA_20151031_ETRS98 -nln RABA_20151031_EPSG4326 -progress
 
 $ nohup ./makeSplitRange_20150331_EPSG4326.sh 1 3640 &
 

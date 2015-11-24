@@ -1,8 +1,8 @@
 #!/bin/bash
 splitId=$1
-inputFolder="RABA_20150331_import_forest_EPSG4326"
-outputFolder="RabaSplits_20150331_forest_EPSG4326"
-namePrefix="rabaForest"
+inputFolder="RABA_20151031_EPSG4326"
+outputFolder="RabaSplits_20151031_EPSG4326"
+namePrefix="raba"
 splitGrid="newSplitID_improve1_EPSG4326"
 
 echo -n "START:	"

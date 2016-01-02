@@ -4,5 +4,5 @@ end=$2
 
 for i in $(seq $start $end); do 
   echo "------ Making split ${i}: -------"
-  (time ./makeOneSplitExplode.sh $i) &> RabaSplits_20151130_EPSG4326/raba${i}log.txt;
+  (time ./makeOneSplitExplode.sh $i) &> RabaSplits_20151231_EPSG4326/raba${i}log.txt;
 done

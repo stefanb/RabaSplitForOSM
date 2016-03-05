@@ -1,9 +1,10 @@
 #!/bin/bash
 splitId=$1
-inputFolder="RABA_20151231_EPSG4326"
-outputFolder="RabaSplits_20151231_EPSG4326"
+inputFolder="RABA_${2}${3}${4}_EPSG4326"
+outputFolder="RabaSplits_${2}${3}${4}_EPSG4326"
 namePrefix="raba"
 splitGrid="newSplitID_improve1_EPSG4326"
+isoDate="${2}-${3}-${4}"
 
 echo -n "START:	"
 date -u +"%Y-%m-%dT%H:%M:%SZ"
@@ -71,7 +72,7 @@ ogr2ogr ${outputFolder}/${namePrefix}${splitId}diss/ ${outputFolder}/${namePrefi
  -sql "SELECT ST_Union(geometry),
 		src.RABA_ID,
 		'RABA-KGZ' as source,
-		'2015-12-31' as SOURCEDATE,
+		'${isoDate}' as SOURCEDATE,
 		sif.natural,
 		sif.landuse,
 		sif.crop,

@@ -61,9 +61,10 @@ if [ ! -d "${targetFolder}" ]; then
   # Control will enter here if $DIRECTORY doesn't exist
   #  mkdir RabaSplits_20151231_EPSG4326
     mkdir $targetFolder
-    ln -s /osm/raba/$targetFolder /osm/osm.si/$targetFolder
+    ln -s /osm/raba/$targetFolder /osm/wwwroot/osm.si/$targetFolder
 else
-     echo Folder $targetFolder exists...
+     echo Folder $targetFolder already exists, containing:
+     ls -la $targetFolder/*
 #     rm -r $targetFolder/*
 fi
 

@@ -19,16 +19,10 @@ import into OpenStreetMap, by performing these actions:
 
 ### Usage
 Basic:
-
-    $ ./makeSplitRange.sh 1 3640
-
-Starting 4 processes in parallel:
-
-    $ nohup ./makeSplitRange.sh 1 999 &
-    $ nohup ./makeSplitRange.sh 1000 1999 &
-    $ nohup ./makeSplitRange.sh 2000 2999 &
-    $ nohup ./makeSplitRange.sh 3000 3640 &
-(observe the generated nohup.out to see the progress)
+1. adjust the date in prepareSource.sh (see what dataset is available at http://rkg.gov.si/GERK/)
+2. run:
+    $ ./prepareSource.sh
+3. wait couple of hours (you can safely disconnect, it will continue in the background using nohup)
 
 ### More info
 * [Slovenia Landcover Import - RABA-KGZ](https://wiki.openstreetmap.org/wiki/Slovenia_Landcover_Import_-_RABA-KGZ) wiki page

@@ -18,7 +18,6 @@ import into OpenStreetMap, by performing these actions:
 * [bbe](https://tracker.debian.org/pkg/bbe)
 
 ### Usage
-Basic:
 1. adjust the date in prepareSource.sh (see what dataset is available at http://rkg.gov.si/GERK/)
 2. run:
     $ ./prepareSource.sh

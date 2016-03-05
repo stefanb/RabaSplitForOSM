@@ -39,15 +39,17 @@ echo "  done."
 #$ ogrinfo -al -so splits/split36 | grep Extent
 #Extent: (4616000.000024, 2492999.999501) - (4619000.000024, 2494999.999502)
 extent_raw=$(ogrinfo -al -so ${outputFolder}/${namePrefix}${splitId}area | grep Extent)
-#echo "extent_raw value is: ${extent_raw}"
+echo "    Split extent_raw value is: ${extent_raw}"
 
 #$ echo -n "Extent: (4616000.000024, 2492999.999501) - (4619000.000024, 2494999.999502)" | grep -o '[\.0-9]*' | tr "\\n" " "
-extent=$(echo -n $extent_raw | grep -o '[\.0-9]*' | tr "\\n" " ")
+#extent=$(echo -n $extent_raw | grep -o '[\.0-9]*' | tr "\\n" " ")
+# enlarge extent slightly to accomodate for rounding errors:
+extent=$(echo -n $extent_raw | grep -o '[\.0-9]*' | tr "\\n" " "  | awk '{print $1-0.0001 " " $2-0.0001 " " $3+0.0001 " " $4+0.0001}' | tr "\\n" " ")
 #echo "    Determined extent: ${extent}"
 
 
 #rough clip by extent
-echo -n "    Rough clipping by extent: ${extent}..."
+echo -n "    Rough clipping by slightly larger extent: ${extent}..."
 #ogr2ogr -progress -clipsrc spat_extent splits/split36spat RABA_20140911_EPSG3035/ -nln ${namePrefix}${splitId}spat -spat 4616000.000024 2492999.999501 4619000.000024 2494999.999502
 ogr2ogr -clipsrc spat_extent ${outputFolder}/${namePrefix}${splitId}spat ${inputFolder}/ -nln ${namePrefix}${splitId}spat -spat ${extent}
 echo "  done."

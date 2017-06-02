@@ -14,14 +14,16 @@ import into OpenStreetMap, by performing these actions:
 ### Requirements
 * Source shapefile from http://rkg.gov.si/GERK/, eg. [RABA_2015_10_31.RAR](http://rkg.gov.si/GERK/documents/RABA_2015_10_31.RAR) (600 MB)
 * [GeoCoordinateConverter](https://github.com/mrihtar/GeoCoordinateConverter) (http://geocoordinateconverter.tk)
-* [ogr2ogr](http://www.gdal.org/ogr2ogr.html) from [GDAL suite](http://www.gdal.org/index.html)
-* [bbe](https://tracker.debian.org/pkg/bbe)
+* [```ogr2ogr```](http://www.gdal.org/ogr2ogr.html) from [GDAL suite](http://www.gdal.org/index.html)
+* [```bbe```](https://tracker.debian.org/pkg/bbe) Binary block editor
 
 ### Usage
-1. adjust the date in prepareSource.sh (see what dataset is available at http://rkg.gov.si/GERK/)
-2. run:
+1. Adjust the date in ```prepareSource.sh``` (see what dataset is available at http://rkg.gov.si/GERK/)
+2. Run:
+    ```
     $ ./prepareSource.sh
-3. wait couple of hours (you can safely disconnect, it will continue in the background using nohup)
+    ```
+3. Wait couple of hours (you can safely disconnect after a first few steps once it says so, it will continue in the background using nohup).
 
 ### More info
 * [Slovenia Landcover Import - RABA-KGZ](https://wiki.openstreetmap.org/wiki/Slovenia_Landcover_Import_-_RABA-KGZ) wiki page

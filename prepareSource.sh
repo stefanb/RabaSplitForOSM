@@ -1,7 +1,7 @@
 #parameters:
-yyyy="2017"
+yyyy="2018"
 dd="31"
-mm="12"
+mm="01"
 # possible default: http://stackoverflow.com/questions/16835145/how-to-get-last-day-of-last-month-in-unix
 
 #internal variables...

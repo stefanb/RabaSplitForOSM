@@ -1,7 +1,7 @@
 #parameters:
 yyyy="2018"
-dd="30"
-mm="06"
+dd="31"
+mm="08"
 # possible default: http://stackoverflow.com/questions/16835145/how-to-get-last-day-of-last-month-in-unix
 
 #internal variables...
@@ -61,14 +61,19 @@ if [ ! -d "${targetFolder}" ]; then
   # Control will enter here if $DIRECTORY doesn't exist
   #  mkdir RabaSplits_20151231_EPSG4326
     mkdir $targetFolder
-    ln -s /osm/raba/$targetFolder /osm/wwwroot/osm.si/$targetFolder
+    #ln -s /osm/raba/$targetFolder /osm/wwwroot/osm.si/$targetFolder
+    #ln -s /osm/raba/RabaSplitForOSM/RabaSplits_20180630_EPSG4326 /osm/raba/raba.openstreetmap.si/RabaSplits_20180630_EPSG4326
+    ln -s /osm/raba/RabaSplitForOSM/$targetFolder /osm/raba/raba.openstreetmap.si/$targetFolder
 else
      echo Folder $targetFolder already exists, containing:
      ls -la $targetFolder/*
 #     rm -r $targetFolder/*
 fi
 
-nohup ./makeSplitRange.sh 1 3640 ${yyyy} ${mm} ${dd} &
+nohup ./makeSplitRange.sh 1 999 ${yyyy} ${mm} ${dd} &
+nohup ./makeSplitRange.sh 1000 1999 ${yyyy} ${mm} ${dd} &
+nohup ./makeSplitRange.sh 2000 2999 ${yyyy} ${mm} ${dd} &
+nohup ./makeSplitRange.sh 3000 3640 ${yyyy} ${mm} ${dd} &
 
 echo "It is safe to ctrl+break, as it runs in background..."
 touch nohup.out

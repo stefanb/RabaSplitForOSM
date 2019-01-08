@@ -1,7 +1,7 @@
 #parameters:
-yyyy="2018"
-dd="31"
-mm="12"
+yyyy="2019"
+dd="03"
+mm="01"
 # possible default: http://stackoverflow.com/questions/16835145/how-to-get-last-day-of-last-month-in-unix
 
 #internal variables...
@@ -34,7 +34,8 @@ else
 fi
 
 
-etrsName="RABA_${dateCompact}_ETRS89"
+#etrsName="RABA_${dateCompact}_ETRS89"
+etrsName="RABA_${dateCompact}"
 if [ ! -d "${etrsName}" ]; then
   # Control will enter here if $DIRECTORY doesn't exist
     cd $sourceFolder
@@ -50,7 +51,7 @@ fi
 
 epsgName="RABA_${dateCompact}_EPSG4326"
 if [ ! -d "${epsgName}" ]; then
-    ogr2ogr -t_srs "EPSG:4326" ${epsgName} ${etrsName} -nln ${epsgName} -progress
+    ogr2ogr -s_srs "EPSG:3794" -t_srs "EPSG:4326" ${epsgName} ${etrsName} -nln ${epsgName} -progress
 else
     echo $epsgName folder exists, using it;
     ls -la $epsgName

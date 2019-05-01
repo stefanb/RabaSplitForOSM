@@ -1,7 +1,7 @@
 #parameters:
 yyyy="2019"
-dd="28"
-mm="02"
+dd="30"
+mm="04"
 # possible default: http://stackoverflow.com/questions/16835145/how-to-get-last-day-of-last-month-in-unix
 
 #internal variables...

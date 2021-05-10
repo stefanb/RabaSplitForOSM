@@ -13,6 +13,13 @@ echo -n "START:	"
 date -u +"%Y-%m-%dT%H:%M:%SZ"
 echo Making split ${splitId} from ${inputFolder} to folder ${outputFolder}:
 
+echo -n "  Preemptive cleanup..."
+rm -rf ${outputFolder}/${namePrefix}${splitId}area
+rm -rf ${outputFolder}/${namePrefix}${splitId}spat
+rm -rf ${outputFolder}/${namePrefix}${splitId}
+rm -rf ${outputFolder}/${namePrefix}${splitId}diss
+rm -rf ${outputFolder}/${namePrefix}${splitId}dissJosm
+echo "  done."
 
 # extract a shapefile split from large shapefile
 echo "  Clipping split ${splitId}:"

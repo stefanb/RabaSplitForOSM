@@ -8,7 +8,9 @@ echo "Starting RABA split at $(date)"
 #date --date="yesterday" +"%d-%m-%y"
 yyyy=`date -d "$(date +%Y-%m-01) -1 day" +"%Y"`
 dd=`date -d "$(date +%Y-%m-01) -1 day" +"%d"`
+#dd="02"
 mm=`date -d "$(date +%Y-%m-01) -1 day" +"%m"`
+#mm="08"
 
 #set parameters:
 #yyyy="2021"
@@ -52,6 +54,6 @@ targetFolder="RabaSplits_latest_EPSG4326"
 
 rm -rf ${epsgName}
 
-ln -s /osm/raba/RabaSplitForOSM/$targetFolder /osm/raba/raba.openstreetmap.si/RabaSplits_latest_EPSG4326
+#ln -s /osm/raba/RabaSplitForOSM/$targetFolder /osm/raba/raba.openstreetmap.si/RabaSplits_latest_EPSG4326
 
 echo "Finished on $(date)"

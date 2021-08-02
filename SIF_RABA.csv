@@ -3,7 +3,7 @@ RABA_ID,DESCRIPTION,MIN_AREA,IMPORT,landuse,crop,trees,natural,wetland
 1160,"Hmeljišče",500,YES,farmland,hop,,,
 1180,"Trajne rastline na njivskih površinah",1000,YES,plant_nursery,,,,
 1190,"Rastlinjak",25,YES,greenhouse_horticulture,,,,
-1211,"Vinograd",500,YES,vineyard,,,,
+1211,"Vinograd",500,YES,vineyard,grape,,,
 1212,"Matičnjak",500,YES,vineyard,,,,
 1221,"Intenzivni sadovnjak",1000,YES,orchard,,,,
 1222,"Ekstenzivni sadovnjak",1000,YES,orchard,,,,

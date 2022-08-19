@@ -12,24 +12,31 @@ import into OpenStreetMap, by performing these actions:
 * Optional: use JOSM remote control via dedicated [raba.openstreetmap.si](http://raba.openstreetmap.si) website ([source in git](https://github.com/openstreetmap-si/raba.openstreetmap.si)) to perform import
 
 ### Requirements
+
 * Source shapefile from http://rkg.gov.si/GERK/, eg. [RABA_2015_10_31.RAR](http://rkg.gov.si/GERK/documents/RABA_2015_10_31.RAR) (600 MB)
-* [GeoCoordinateConverter](https://github.com/mrihtar/GeoCoordinateConverter) (http://geocoordinateconverter.tk)
+* [GeoCoordinateConverter](https://github.com/mrihtar/GeoCoordinateConverter) (http://geocoordinateconverter.tk) was needed to convert old national D48 Gauss Krueger source before it was available in D96 Traverse Mercator
 * [```ogr2ogr```](http://www.gdal.org/ogr2ogr.html) from [GDAL suite](http://www.gdal.org/index.html)
 * [```bbe```](https://tracker.debian.org/pkg/bbe) Binary block editor
 
 ### Usage
-1. Adjust the date in ```prepareSource.sh``` (see what dataset is available at http://rkg.gov.si/GERK/)
-2. Run:
+
+1. Run the main script:
+
+    ```bash
+    ./prepareSource.sh
     ```
-    $ ./prepareSource.sh
-    ```
-3. Wait couple of hours (you can safely disconnect after a first few steps once it says so, it will continue in the background using nohup).
+
+2. 
+
+3. Wait an hour for the script to finish - for best results just put it in cron and enjoy .
 
 ### More info
+
 * [Slovenia Landcover Import - RABA-KGZ](https://wiki.openstreetmap.org/wiki/Slovenia_Landcover_Import_-_RABA-KGZ) wiki page
-* Forum: http://forum.openstreetmap.org/viewtopic.php?pid=449111
+* [OSM Forum topic](http://forum.openstreetmap.org/viewtopic.php?pid=449111)
 
 ### Credits
+
 * OpenStreetMap local and global community
 * Matjaž Rihtar (author of [GeoCoordinateConverter](http://geocoordinateconverter.tk))
 * Štefan Baebler (author of RabaSplitForOSM and [raba.openstreetmap.si](http://raba.openstreetmap.si))

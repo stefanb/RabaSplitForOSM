@@ -24,14 +24,14 @@ dateCompact="${yyyy}${mm}${dd}"
 echo "Processing RABA data for ${yyyy}-${mm}-${dd}"
 
 #------ download:------
-sourceRar="RABA_${dateSource}.RAR"
-if [ ! -f ${sourceRar} ]; then
-    echo "Downloading ${sourceRar}..."
-    wget http://rkg.gov.si/GERK/documents/${sourceRar}
+sourceZip="RABA_${dateSource}.zip"
+if [ ! -f ${sourceZip} ]; then
+    echo "Downloading ${sourceZip}..."
+    wget https://rkg.gov.si/arhiv/RABA/${sourceZip}
 fi
 
-if [ ! -f ${sourceRar} ]; then
-    echo "Soure file ${sourceRar} is missing. Failed to download?"
+if [ ! -f ${sourceZip} ]; then
+    echo "Soure file ${sourceZip} is missing. Failed to download?"
     exit 1
 fi
 
@@ -40,7 +40,7 @@ sourceFolder="RABA_${dateCompact}"
 rm -rf ${sourceFolder}
 mkdir $sourceFolder
 cd ${sourceFolder}
-unrar x ../$sourceRar
+unzip ../$sourceZip
 cd ..
 
 epsgName="RABA_${dateCompact}_EPSG4326"
